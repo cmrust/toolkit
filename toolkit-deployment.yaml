@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: toolkit-deployment
+  labels:
+    app: toolkit
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: toolkit
+  template:
+    metadata:
+      labels:
+        app: toolkit
+    spec:
+      containers:
+      - name: toolkit
+        image: cmrust/toolkit:latest
+        command: ["sleep"]
+        args: ["infinity"]
